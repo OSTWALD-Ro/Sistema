@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title id=title></title>
+    <style id=styles></style>
+  </head>
+  <body>
+    <script>
+      var fileName;
+    
+      const container = document.createElement("div");
+      const message = document.createElement("p");
+
+      function Cargar() {
+        function archivoAusente() {
+          
+                message.textContent = "Archivo Ausente.";
+                container.appendChild(message);
+          
+              /*
+              setTimeout(function() {
+                Cargar();
+              }, 0);
+              */
+        }
+
+        message.textContent = "Localizando Archivo...";
+        container.appendChild(message);
+      
+        fetch(fileName)
+        .then(response => {
+          if (response.status === 200) {
+          
+
+              message.textContent = "Archivo Localizado.";
+              container.appendChild(message);
+          
+          } else {
+            archivoAusente();
+          }
+        })
+        .catch(error => {
+          archivoAusente();        
+        })
+      }
+
+      fileName = "https://archive.org/download/OSTWALD-Ro/ID.txt";
+      Cargar();
+
+      document.body.appendChild(container);
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const styles = document.getElementById("styles");
+        const title = document.getElementById("title");
+      
+        styles.innerHTML = `
+          body, html {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: black;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+          }
+        `;
+
+        document.title = "Sesión";
+        title.innerHTML = "Sesión";
+      });
+    </script>
+  </body>
+</html>

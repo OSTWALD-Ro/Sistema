@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id="page-title"></title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100vh;      
+    }
+
+    #texto {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+    }
+
+    .letra {
+      font-size: 9.75vw;
+      animation: animacionTexto 1.3s infinite;
+      animation-delay: calc(var(--delay) * 0.1s);
+      animation-timing-function: ease-in-out;
+      transform: translateY(0%);
+    }
+
+    #mensaje {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 1.3vw;
+    }
+
+    #texto1 {
+      color: green;
+      margin-right: 0.5vw;
+    }
+
+    #texto2 {
+      margin-right: 0.5vw;
+    }
+
+    #texto3 {
+    color: yellow;
+    visibility: hidden;
+    display: flex;
+    animation: animacionPuntos 20s steps(20, end) infinite;
+    animation-delay: calc(var(--delay) * 0.5s);
+  }
+
+  .title {
+    margin-top: 50px;
+  }
+
+  .title button {
+    background-color: rgb(192, 255, 192);
+    color: black;
+  }
+
+    @keyframes animacionTexto {
+      0%, 100% {
+        transform: translateY(25%);
+      }
+
+       50% {
+        transform: translateY(-75%);
+      }
+    }
+
+    @keyframes animacionPuntos {
+      0%, 100% {
+        visibility: hidden;
+      }
+
+      50% {
+        visibility: visible;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="texto"></div>
+
+  <div id="mensaje">
+    <span id="texto1"></span>
+    <span id="texto2"></span>
+    <span id="texto3"></span>
+  </div>
+
+  <div class="title">
+    <button onclick="window.history.back()">Página Anterior</button>
+  </div>
+
+  <script>
+    var pageTitle = document.getElementById("page-title");
+
+    // Variables modificables
+    var identidad = "Neutro";
+
+    var mostrarTexto = true;
+    var mostrarTexto1 = true;
+    var mostrarTexto2 = true;
+    var mostrarTexto3 = true;
+
+    var delayModificarTexto = (6500 / 2);
+
+    var texto = "404";
+    var texto1 = "Error:";
+    var texto2;
+
+    var texto3 = "...";
+    var speedTexto3 = 400;
+    var dotsTexto3 = [];
+    var speedDotsTexto3 = 250;
+
+    // Generar letras dinámicamente
+    var textoDiv = document.getElementById('texto');
+    var texto1Span = document.getElementById('texto1');
+    var texto2Span = document.getElementById('texto2');
+    var texto3Span = document.getElementById('texto3');
+
+    function modificarTexto(texto) {
+      var texto = texto;
+      document.getElementById('texto').textContent = texto;
+    }
+    
+    function modificarTexto1(texto1) {
+      var texto1 = texto1;
+      document.getElementById('texto1').textContent = texto1;
+    }
+    
+    function modificarTexto2(texto2) {
+      var texto2 = texto2;
+      document.getElementById('texto2').textContent = texto2;
+    }
+    
+    function animateDotsTexto3(modificarSpeedDotsTexto3, dotsTexto3) {
+      var texto3Span = document.getElementById('texto3');
+      var dotsTexto3 = dotsTexto3;
+      var index = 0;
+
+      setInterval(function() {
+        if (mostrarTexto3) {
+          texto3Span.textContent = dotsTexto3[index];
+          index = (index + 1) % dotsTexto3.length;
+        }
+      }, speedTexto3);
+    }
+
+    function modificarDotsTexto3(modificarSpeedDotsTexto3, dotsTexto3) {
+      var modificarSpeedDotsTexto3 = modificarSpeedDotsTexto3;
+      var texto3 = "";
+      var dotsTexto3 = dotsTexto3;
+
+      animateDotsTexto3(modificarSpeedDotsTexto3, dotsTexto3);
+    }
+
+    function modificarTexto3(texto3) {
+      var texto3 = texto3;
+      document.getElementById('texto3').textContent = texto3;
+      
+      function animacionTexto3() {
+        if (mostrarTexto3) {
+          for (var k = 1; k <= texto3.length; k++) {
+            dotsTexto3.push(texto3.substr(0, k));
+          }
+          dotsTexto3.push('');
+
+          animateDotsTexto3(speedTexto3, dotsTexto3);
+        }
+
+      }
+      animacionTexto3();
+    }
+
+    function modificarTextoConsola() {
+      modificarTexto2("Página no encontrada");
+    
+      modificarTexto3("...");
+
+      setTimeout(function() {
+        location.reload();
+      }, (1600 * 10));
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('page-title').textContent = texto;
+
+      modificarTextoConsola();
+    });
+
+    if (mostrarTexto) {
+      for (var i = 0; i < texto.length; i++) {
+        var letra = document.createElement("span");
+        letra.className = "letra";
+        letra.style.setProperty("--delay", i);
+        letra.textContent = texto[i];
+        textoDiv.appendChild(letra);
+      }
+    }
+
+    if (mostrarTexto1) {
+      var texto1Texto = document.createTextNode(texto1);
+      texto1Span.appendChild(texto1Texto);
+    }
+
+    if (mostrarTexto2) {
+      for (var j = 0; j < texto2.length; j++) {
+        var palabra = document.createElement("span");
+        palabra.textContent = texto2[j];
+        texto2Span.appendChild(palabra);
+
+        if (j !== texto2.length - 1) {
+          var espacio = document.createElement("span");
+          espacio.textContent = " ";
+          texto2Span.appendChild(espacio);
+        }
+      }
+    }
+
+    function AjustarTamanoTexto() {
+      var textoDiv = document.getElementById('texto');
+      var vw = window.innerWidth / 100;
+      textoDiv.style.fontSize = vw + 'vw';
+
+      var mensaje = document.getElementById('mensaje');
+      mensaje.style.fontSize = (vw * 0.2) + 'vw';
+    }
+    
+    window.addEventListener('resize', AjustarTamanoTexto);
+    AjustarTamanoTexto();
+  </script>
+</body>
+</html>

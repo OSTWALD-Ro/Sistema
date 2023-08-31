@@ -118,7 +118,7 @@
         mainURL = currentURL;
       }
 
-      if (currentURL !== mainURL)
+      if (currentURL != mainURL)
       {
         location.reload(true);
         window.open(mainURL);
@@ -148,7 +148,7 @@
         document.title = "Sesión";
         title.innerHTML = "Sesión";
 
-        if (currentURL === mainURL)
+        if (currentURL == mainURL)
         {
           //Si se abrio desde la URL Original
           init();

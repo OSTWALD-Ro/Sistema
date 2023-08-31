@@ -9,12 +9,14 @@
 
       'use strict';
 
-      var mode = 1; // 0 Prueba | 1 Normal
+      var testMode = false; // false Modo Normal | true Modo Prueba
 
       var currentURL = window.location.href;
       var mainURL = "https://ostwald-ro.github.io/Sistema/Sesión";
       var mainURLError = "https://ostwald-ro.github.io/Sistema/Sesi%C3%B3n";
       var mainURLErrorHTML = "https://ostwald-ro.github.io/Sistema/Sesi%C3%B3n.html";
+
+      var alternativeFunctions = true; // Funciones Alternativas | false true
 
       var fileName;
       var segundo = 1000;
@@ -23,6 +25,33 @@
     
       const container = document.createElement("div");
       const message = document.createElement("p");
+
+      function end(_blank)
+      {
+        
+        if (
+            alternativeFunctions === true
+           )
+        {
+          window.location.href = mainURL;
+        } else 
+        {
+
+
+            location.reload(true);
+
+          if (
+              _blank === true
+             )
+          {
+            window.open(mainURL, '_blank');
+          } else
+          {
+            window.open(mainURL);
+          }
+          window.close();
+        }
+      }
       
       function localizarArchivo() 
       {
@@ -54,15 +83,11 @@
                   segundosReintentando = (segundosReintentando - 1);
                 } else {
                   s,  segundosReintentando = "";
-                  /* localizarArchivo(); */
 
-                  localizarArchivo();
-                  location.reload(true);
                   if (segundosReintentando == 0) 
                   {
-                    window.open(mainURL, '_blank');
+                    end(true);
                   }
-                  window.close();
                 }
               }, segundo);
           }, segundo);          
@@ -97,7 +122,9 @@
             
             setTimeout(function() 
             {
-              if (mode === 0)
+              if (
+                  testMode === true
+                 )
               {
                 message.textContent = usuario + " " + contraseña;  container.appendChild(message);
               }
@@ -115,19 +142,17 @@
         localizarArchivo();
       }
       
-      if (mode === 0)
+      if (testMode === true)
       {
         currentURL = mainURLError;
       }
       
       if (
-          currentURL !== mainURLError
-          // currentURL !== mainURLErrorHTML
+          currentURL !== mainURLError &&
+          currentURL !== mainURLErrorHTML
          )
       {
-        // location.reload(true);
-        // window.open(mainURL);
-        window.close();
+        end();
       }
 
       document.addEventListener("DOMContentLoaded", function() 

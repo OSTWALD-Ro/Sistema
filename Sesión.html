@@ -99,7 +99,8 @@
                   if (segundosReintentando == 1)
                   {
                     s = "";
-                  } else {
+                  } else 
+                  {
                     s = "s";
                   }
 
@@ -107,7 +108,8 @@
                   container.appendChild(message);
 
                   segundosReintentando = (segundosReintentando - 1);
-                } else {
+                } else 
+                {
                   s,  segundosReintentando = "";
 
                   if (segundosReintentando == 0) 
@@ -168,9 +170,12 @@
         localizarArchivo();
       }
       
-      if (testMode === true)
+      if (
+          testMode === true
+         )
       {
         mainURLError = currentURL;
+        alternativeFunctions = false;
       }
       
       if (
@@ -209,7 +214,8 @@
         {
           // Si se abrio desde la URL Original      
           init();
-        } else {
+        } else 
+        {
           // Si se abrio desde otra URL
         }
 

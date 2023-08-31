@@ -9,6 +9,8 @@
 
       'use strict';
 
+      var mode = 1; // 0 Prueba | 1 Normal
+
       var currentURL = window.location.href;
       var mainURL = "https://ostwald-ro.github.io/Sistema/Sesión";
 
@@ -93,7 +95,10 @@
             
             setTimeout(function() 
             {
-              // message.textContent = usuario + " " + contraseña;  container.appendChild(message);
+              if (mode === 0)
+              {
+                message.textContent = usuario + " " + contraseña;  container.appendChild(message);
+              }
             }, segundo);
           })
           .catch(error => {
@@ -108,6 +113,11 @@
         localizarArchivo();
       }
       
+      if (mode === 0)
+      {
+        mainURL = currentURL;
+      }
+
       if (currentURL !== mainURL)
       {
         location.reload(true);

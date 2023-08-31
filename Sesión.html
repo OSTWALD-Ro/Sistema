@@ -22,6 +22,7 @@
       const container = document.createElement("div");
       const message = document.createElement("p");
       const message2 = document.createElement("p");
+      const message3 = document.createElement("p");
       
       function localizarArchivo() 
       {
@@ -122,6 +123,9 @@
       if (currentURL !== mainURL)
       {
         message.textContent = 1 + " " + mainURL;  container.appendChild(message);
+        message2.textContent = 2 + " " + currentURL;  container.appendChild(message2);
+        message3.textContent = "URL's Diferentes";  container.appendChild(message3);
+      
       
         /*
         location.reload(true);
@@ -156,7 +160,9 @@
         if (currentURL === mainURL)
         {
           // Si se abrio desde la URL Original
+          message.textContent = 1 + " " + mainURL;  container.appendChild(message);
           message2.textContent = 2 + " " + currentURL;  container.appendChild(message2);
+         message3.textContent = "URL's Iguales";  container.appendChild(message3);
       
           // init();
         } else {

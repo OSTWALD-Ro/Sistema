@@ -12,7 +12,7 @@
       var mode = 1; // 0 Prueba | 1 Normal
 
       var currentURL = window.location.href;
-      var mainURL = "https://ostwald-ro.github.io/Sistema/Sesión.html";
+      var mainURL = "https://ostwald-ro.github.io/Sistema/Sesión";
 
       var fileName;
       var segundo = 1000;
@@ -118,8 +118,7 @@
         mainURL = currentURL;
       }
 
-      if (currentURL != mainURL)
-      {
+      if (currentURL === mainURL) {} else {
         location.reload(true);
         window.open(mainURL);
         window.close();
@@ -148,7 +147,7 @@
         document.title = "Sesión";
         title.innerHTML = "Sesión";
 
-        if (currentURL == mainURL)
+        if (currentURL === mainURL)
         {
           //Si se abrio desde la URL Original
           init();

@@ -22,77 +22,85 @@
         function archivoAusente() 
         {
           
-                message.textContent = "Archivo Ausente.";
-                container.appendChild(message);
+                message.textContent = "Archivo Ausente.";  container.appendChild(message);
 
-          segundosReintentando = (10);
+          setTimeout(function()
+          {
+            segundosReintentando = (10);
 
-          // while (segundosReintentando > 0)
+            // while (segundosReintentando > 0) {}
           
-            setInterval(function() 
-            {
-              if (segundosReintentando >= 0)
+              setInterval(function() 
               {
-                if (segundosReintentando == 1)
+                if (segundosReintentando >= 0)
                 {
-                  s = "";
+                  if (segundosReintentando == 1)
+                  {
+                    s = "";
+                  } else {
+                    s = "s";
+                  }
+
+                  message.textContent = "Reintentando en " + (segundosReintentando) + " segundo" + s + "...";
+                  container.appendChild(message);
+
+                  segundosReintentando = (segundosReintentando - 1);
                 } else {
-                  s = "s";
+                  s,  segundosReintentando = "";
+                  /* localizarArchivo(); */
+
+                  localizarArchivo();
+                  location.reload(true);
+                  window.open('https://ostwald-ro.github.io/Sistema/Sesión', '_blank');
+                  window.close();
                 }
-
-                message.textContent = "Reintentando en " + (segundosReintentando) + " segundo" + s + "...";
-                container.appendChild(message);
-
-                segundosReintentando = (segundosReintentando - 1);
-              } else {
-                s,  segundosReintentando = "";
-                /* localizarArchivo(); */
-                location.reload(true);
-                window.open('https://ostwald-ro.github.io/Sistema/Sesión', '_blank');
-
-                window.close();
-              }
-            }, segundo);
-          
+              }, segundo);
+          }, segundo);          
         }
 
-        message.textContent = "Localizando Archivo...";
-        container.appendChild(message);
+        message.textContent = "Localizando Archivo...";  container.appendChild(message);
       
-        fetch(fileName)
-        .then(response => response.text())
-        .then(data => 
+        setTimeout(function() 
         {
+          fetch(fileName)
+          .then(response => response.text())
+          .then(data => 
+          {
 
-          var linesTitlesTable = 1;
-          var userLinesTable = 1;
-          var passwordLinesTable = 2;
+            var linesTitlesTable = 1;
+            var userLinesTable = 1;
+            var passwordLinesTable = 2;
 
-          var ID = 1;
+            var ID = 1;
 
-          // Dividir el contenido del archivo en líneas
-          var lines = data.split("\n");
+            // Dividir el contenido del archivo en líneas
+            var lines = data.split("\n");
 
-          // Dividir en palabras un renglón
-          var lineWords = lines[(1)-linesTitlesTable].split(" ");
+            // Dividir en palabras un renglón
+            var lineWords = lines[(1)-linesTitlesTable].split(" ");
           
-          // lineWords[2];
+            // lineWords[2];
 
-          var usuario = data.split("\n")[(ID)+(linesTitlesTable)-1].split(" ")[(userLinesTable)-1];
-          var contraseña = data.split("\n")[(ID)+(linesTitlesTable)-1].split(" ")[(passwordLinesTable)-1];
+            var usuario = data.split("\n")[(ID)+(linesTitlesTable)-1].split(" ")[(userLinesTable)-1];
+            var contraseña = data.split("\n")[(ID)+(linesTitlesTable)-1].split(" ")[(passwordLinesTable)-1];
 
-          message.textContent = "Archivo Localizado";
-          // message.textContent = "Archivo Localizado: " + usuario + " " + contraseña;
-          container.appendChild(message);
-        })
-        .catch(error => {
-            archivoAusente();
-        });
+            message.textContent = "Archivo Localizado";  container.appendChild(message);
+            // message.textContent = "Archivo Localizado: " + usuario + " " + contraseña;  container.appendChild(message);
+
+            setTimeout(function() 
+            {
+              // message.textContent = usuario + " " + contraseña;  container.appendChild(message);
+            }, segundo);
+          })
+          .catch(error => {
+              archivoAusente();
+          });
+        }, segundo);
       }
 
       function init() 
       {
-        fileName = "https://ostwald-ro.github.io/Sistema/ID.txt";
+        fileName = "https://ostwald-rogithub.io/Sistema/ID.txt";
         localizarArchivo();
       }
       

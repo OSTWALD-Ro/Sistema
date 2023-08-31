@@ -13,6 +13,7 @@
 
       var currentURL = window.location.href;
       var mainURL = "https://ostwald-ro.github.io/Sistema/Sesión";
+      var mainURLError = "https://ostwald-ro.github.io/Sistema/Sesi%C3%B3n";
 
       var fileName;
       var segundo = 1000;
@@ -117,10 +118,10 @@
       
       if (mode === 0)
       {
-        mainURL = currentURL;
+        currentURL = mainURLError;
       }
       
-      if (currentURL !== mainURL)
+      if (currentURL !== mainURLError)
       {
         message.textContent = 1 + " " + mainURL;  container.appendChild(message);
         message2.textContent = 2 + " " + currentURL;  container.appendChild(message2);
@@ -157,7 +158,7 @@
         document.title = "Sesión";
         title.innerHTML = "Sesión";
 
-        if (currentURL === mainURL)
+        if (currentURL === mainURLError)
         {
           // Si se abrio desde la URL Original
           message.textContent = 1 + " " + mainURL;  container.appendChild(message);

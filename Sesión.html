@@ -21,6 +21,7 @@
     
       const container = document.createElement("div");
       const message = document.createElement("p");
+      const message2 = document.createElement("p");
       
       function localizarArchivo() 
       {
@@ -117,11 +118,16 @@
       {
         mainURL = currentURL;
       }
-
-      if (currentURL === mainURL) {} else {
+      
+      if (currentURL !== mainURL)
+      {
+        message.textContent = 1 + " " + mainURL;  container.appendChild(message);
+      
+        /*
         location.reload(true);
         window.open(mainURL);
         window.close();
+        */
       }
 
       document.addEventListener("DOMContentLoaded", function() 
@@ -149,10 +155,12 @@
 
         if (currentURL === mainURL)
         {
-          //Si se abrio desde la URL Original
-          init();
+          // Si se abrio desde la URL Original
+          message2.textContent = 2 + " " + currentURL;  container.appendChild(message2);
+      
+          // init();
         } else {
-          //Si se abrio desde otra URL
+          // Si se abrio desde otra URL
         }
 
         document.body.appendChild(container);

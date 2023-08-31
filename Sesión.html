@@ -81,7 +81,8 @@
           var usuario = data.split("\n")[(ID)+(linesTitlesTable)-1].split(" ")[(userLinesTable)-1];
           var contraseña = data.split("\n")[(ID)+(linesTitlesTable)-1].split(" ")[(passwordLinesTable)-1];
 
-          message.textContent = "Archivo Localizado: " + usuario + " " + contraseña;
+          message.textContent = "Archivo Localizado";
+          // message.textContent = "Archivo Localizado: " + usuario + " " + contraseña;
           container.appendChild(message);
         })
         .catch(error => {
@@ -91,7 +92,7 @@
 
       function init() 
       {
-        fileName = "https://ostwald-rogithub.io/Sistema/ID.txt";
+        fileName = "https://ostwald-ro.github.io/Sistema/ID.txt";
         localizarArchivo();
       }
       

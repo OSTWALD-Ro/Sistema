@@ -51,7 +51,10 @@
 
                   localizarArchivo();
                   location.reload(true);
-                  window.open('https://ostwald-ro.github.io/Sistema/Sesión', '_blank');
+                  if (segundosReintentando == 0) 
+                  {
+                    window.open('https://ostwald-ro.github.io/Sistema/Sesión', '_blank');
+                  }
                   window.close();
                 }
               }, segundo);

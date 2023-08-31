@@ -14,26 +14,32 @@
       var currentURL = window.location.href;
       var mainURL = "https://ostwald-ro.github.io/Sistema/Sesión";
       var mainURLError = "https://ostwald-ro.github.io/Sistema/Sesi%C3%B3n";
-      var mainURLErrorHTML = "https://ostwald-ro.github.io/Sistema/Sesi%C3%B3n.html";
+      // var mainURLErrorHTML = "https://ostwald-ro.github.io/Sistema/Sesi%C3%B3n.html";
 
       var alternativeFunctions = true; // Funciones Alternativas | false true
 
-      var fileName;
+      var fileName, segundosReintentando, s;
       var segundo = 1000;
-      var segundosReintentando;
-      var s;
     
       const container = document.createElement("div");
       const message = document.createElement("p");
 
       function end(_blank)
       {
-        
+
         if (
             alternativeFunctions === true
            )
         {
-          window.location.href = mainURL;
+          if (
+              testMode === true
+             )
+          {
+            window.location.href = currentURL;
+          } else
+          {
+            window.location.href = mainURL;
+          }
         } else 
         {
 
@@ -44,10 +50,30 @@
               _blank === true
              )
           {
-            window.open(mainURL, '_blank');
+
+            if (
+                testMode === true
+               )
+            {
+              window.open(currentURL, '_blank');
+            } else
+            {
+              window.open(mainURL, '_blank');
+            }
+
           } else
           {
-            window.open(mainURL);
+
+            if (
+                testMode === true
+               )
+            {
+              window.open(currentURL);
+            } else
+            {
+              window.open(mainURL);
+            }
+
           }
           window.close();
         }
@@ -144,12 +170,11 @@
       
       if (testMode === true)
       {
-        currentURL = mainURLError;
+        mainURLError = currentURL;
       }
       
       if (
-          currentURL !== mainURLError // &&
-          // currentURL !== mainURLErrorHTML
+          currentURL !== mainURLError
          )
       {
         end();
@@ -185,14 +210,7 @@
           // Si se abrio desde la URL Original      
           init();
         } else {
-          if (
-              currentURL === mainURLErrorHTML
-             )
-          {
-            // window.location.href = mainURL;
-          } else {
-            // Si se abrio desde otra URL
-          }
+          // Si se abrio desde otra URL
         }
 
         document.body.appendChild(container);

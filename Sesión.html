@@ -121,11 +121,11 @@
       }
       
       if (
-          currentURL !== mainURLError &&
-          currentURL !== mainURLErrorHTML
+          currentURL !== mainURLError
+          // currentURL !== mainURLErrorHTML
          )
       {
-        location.reload(true);
+        // location.reload(true);
         window.open(mainURL);
         window.close();
       }
@@ -154,14 +154,20 @@
         title.innerHTML = "Sesión";
 
         if (
-            currentURL === mainURLError  ||
-            currentURL === mainURLErrorHTML
+            currentURL === mainURLError
            )
         {
           // Si se abrio desde la URL Original      
           init();
         } else {
-          // Si se abrio desde otra URL
+          if (
+              currentURL === mainURLErrorHTML
+             )
+          {
+            // window.location.href = mainURL;
+          } else {
+            // Si se abrio desde otra URL
+          }
         }
 
         document.body.appendChild(container);

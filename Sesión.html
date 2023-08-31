@@ -9,6 +9,9 @@
 
       'use strict';
 
+      var currentURL = window.location.href;
+      var mainURL = "https://ostwald-ro.github.io/Sistema/Sesión";
+
       var fileName;
       var segundo = 1000;
       var segundosReintentando;
@@ -53,7 +56,7 @@
                   location.reload(true);
                   if (segundosReintentando == 0) 
                   {
-                    window.open('https://ostwald-ro.github.io/Sistema/Sesión', '_blank');
+                    window.open(mainURL, '_blank');
                   }
                   window.close();
                 }
@@ -69,7 +72,6 @@
           .then(response => response.text())
           .then(data => 
           {
-
             var linesTitlesTable = 1;
             var userLinesTable = 1;
             var passwordLinesTable = 2;
@@ -88,8 +90,7 @@
             var contraseña = data.split("\n")[(ID)+(linesTitlesTable)-1].split(" ")[(passwordLinesTable)-1];
 
             message.textContent = "Archivo Localizado";  container.appendChild(message);
-            // message.textContent = "Archivo Localizado: " + usuario + " " + contraseña;  container.appendChild(message);
-
+            
             setTimeout(function() 
             {
               // message.textContent = usuario + " " + contraseña;  container.appendChild(message);
@@ -107,6 +108,12 @@
         localizarArchivo();
       }
       
+      if (currentURL !== mainURL)
+      {
+        location.reload(true);
+        window.open(mainURL);
+        window.close();
+      }
 
       document.addEventListener("DOMContentLoaded", function() 
       {
@@ -131,7 +138,13 @@
         document.title = "Sesión";
         title.innerHTML = "Sesión";
 
-        init();
+        if (currentURL === mainURL)
+        {
+          //Si se abrio desde la URL Original
+          init();
+        } else {
+          //Si se abrio desde otra URL
+        }
 
         document.body.appendChild(container);
       });

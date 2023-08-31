@@ -123,16 +123,9 @@
       
       if (currentURL !== mainURLError)
       {
-        message.textContent = 1 + " " + mainURL;  container.appendChild(message);
-        message2.textContent = 2 + " " + currentURL;  container.appendChild(message2);
-        message3.textContent = "URL's Diferentes";  container.appendChild(message3);
-      
-      
-        /*
         location.reload(true);
         window.open(mainURL);
         window.close();
-        */
       }
 
       document.addEventListener("DOMContentLoaded", function() 
@@ -160,12 +153,8 @@
 
         if (currentURL === mainURLError)
         {
-          // Si se abrio desde la URL Original
-          message.textContent = 1 + " " + mainURL;  container.appendChild(message);
-          message2.textContent = 2 + " " + currentURL;  container.appendChild(message2);
-         message3.textContent = "URL's Iguales";  container.appendChild(message3);
-      
-          // init();
+          // Si se abrio desde la URL Original      
+          init();
         } else {
           // Si se abrio desde otra URL
         }

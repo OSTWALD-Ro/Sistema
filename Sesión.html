@@ -32,19 +32,20 @@
            )
         {
           if (
-              testMode === true
+              testMode !== true
              )
           {
-            window.location.href = currentURL;
+            window.location.href = mainURL;
           } else
           {
-            window.location.href = mainURL;
+            // window.location.href = currentURL;
+            location.reload(true);
           }
         } else 
         {
 
 
-            location.reload(true);
+            // location.reload(true);
 
           if (
               _blank === true
@@ -52,26 +53,26 @@
           {
 
             if (
-                testMode === true
+                testMode !== true
                )
             {
-              window.open(currentURL, '_blank');
+              window.open(mainURL, '_blank');
             } else
             {
-              window.open(mainURL, '_blank');
+              window.open(currentURL, '_blank');
             }
 
           } else
           {
 
             if (
-                testMode === true
+                testMode !== true
                )
             {
-              window.open(currentURL);
+              window.open(mainURL);
             } else
             {
-              window.open(mainURL);
+              window.open(currentURL);
             }
 
           }
@@ -155,6 +156,11 @@
                  )
               {
                 message.textContent = usuario + " " + contraseña;  container.appendChild(message);
+              
+                setTimeout(function()
+                {
+                  // end(true);
+                }, segundo);
               }
             }, segundo);
           })

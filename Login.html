@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Iniciar Sesión</title>
+  <style>
+    html {
+      background-color: rgb( 0, 0, 0);
+      border: ridge rgb(63, 63, 63);
+      color: rgb(63, 63, 63);
+      box-shadow: 0 0 1.5vh rgb(63, 63, 63);
+      border-radius: 0px 0px 0px 0px;
+      margin: solid;
+      padding: solid;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      height: 99vh;
+      font-family: Arial, sans-serif;
+    }
+  
+    html:hover {
+      border: double rgb(191, 191, 191);
+      color: rgb(191, 191, 191);
+      box-shadow: 0 0 1.5vh rgb(191, 191, 191);
+    }
+
+    body {
+      background-color: rgb( 0, 0, 0);
+      border: ridge rgb(63, 63, 63);
+      color: rgb(63, 63, 63);
+      box-shadow: 0 0 1.5vh rgb(63, 63, 63);
+      border-radius: 20px 20px 20px 20px;
+      margin: solid;
+      padding: solid;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      /* height: calc(96.5vh - 6vh);
+      width: 150vh; */
+      height: 99.25%;
+      width: 100%;
+    }
+  
+    body:hover {
+      border: double rgb(191, 191, 191);
+      color: rgb(191, 191, 191);
+      box-shadow: 0 0 1.5vh rgb(191, 191, 191);
+    }
+
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      background-color: rgba( 0, 0, 0, 0);
+      border: ridge rgb(63, 63, 63);
+      color: rgb(63, 63, 63);
+      box-shadow: 0 0 1.5vh rgb(63, 63, 63);
+      margin: solid;
+      padding: 5vh;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      border-radius: 20px 20px 20px 20px;
+      cursor: default;
+    }
+
+    .login-container:hover {
+      border: double rgb(191, 191, 191);
+      color: rgb(191, 191, 191);
+      box-shadow: 0 0 1.5vh rgb(191, 191, 191);
+    }
+
+    .input-field {
+      background-color: rgba( 0, 0, 0, 0);
+      border: ridge rgb(63, 63, 191);
+      color: rgb(63, 63, 191);
+      box-shadow: 0 0 1.5vh rgb(63, 63, 191);
+      margin: solid;
+      padding: 1.5vh;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      margin-bottom: 1.5vh;
+      width: 250px;
+      border-radius: 20px 20px 0px 0px;
+    }
+
+    .input-field:hover {
+      border: double rgb(0, 0, 255);
+      color: rgb(0, 0, 255);
+      box-shadow: 0 0 1.5vh rgb(0, 0, 255);
+    }
+
+    .password-field {
+      border: ridge rgb(191, 63, 63);
+      color: rgb(191, 63, 63);
+      box-shadow: 0 0 1.5vh rgb(191, 63, 63);
+      border-radius: 0px 0px 20px 20px;
+    }
+
+    .password-field:hover {
+      border: double rgb(255, 0, 0);
+      color: rgb(255, 0, 0);
+      box-shadow: 0 0 1.5vh rgb(255, 0, 0);
+    }
+
+    .login-button {
+      background-color: rgba( 0, 0, 0, 0);
+      border: ridge rgb(63, 191, 63);
+      color: rgb(63, 191, 63);
+      box-shadow: 0 0 1.5vh rgb(63, 191, 63);
+      margin: solid;
+      padding: 10px 20px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      margin-top: 1.5vh;
+      border-radius: 20px 20px 20px 20px;
+      cursor: pointer;
+    }
+
+    .login-button:hover {
+      border: double rgb(0, 255, 0);
+      color: rgb(0, 255, 0);
+      box-shadow: 0 0 1.5vh rgb(0, 255, 0);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <input class="input-field" type="text" placeholder="Usuario">
+    <input class="input-field password-field" type="password" placeholder="Contraseña">
+    <button class="login-button" onmousedown="" onmouseup="">Iniciar Sesión</button>
+  </div>
+</body>
+</html>

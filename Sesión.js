@@ -3,28 +3,66 @@
 // Crear Elementos <html>
 // Elementos <head>
 
-const title1 = document.createElement('title');  document.head.appendChild(title1);  title1.textContent = "Sesión";
+const title1 = document.createElement('title');  document.head.appendChild(title1);  title1.id = "title1";  title1.textContent = "Sesión";
 
 // Crear Estilos <style>
-const style1 = document.createElement('style');  document.head.appendChild(style1);
+const style1 = document.createElement('style');  document.head.appendChild(style1);  style1.id = "style1";
 style1.textContent = `
-  body, html {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background-color: black;
-  color: white;
-  align-items: center;
-  justify-content: center;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
+  html {
+    background-color: rgb( 0, 0, 0);
+    border: ridge rgb(63, 63, 63);
+    color: rgb(63, 63, 63);
+    box-shadow: 0 0 1.5vh rgb(63, 63, 63);
+    border-radius: 0px 0px 0px 0px;
+    margin: solid;
+    padding: solid;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    display: flex;
+    height: 99vh;
+    width: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  html:hover {
+    border: double rgb(191, 191, 191);
+    color: rgb(191, 191, 191);
+    box-shadow: 0 0 1.5vh rgb(191, 191, 191);
+  }
+
+  body {
+    background-color: rgb( 0, 0, 0);
+    border: ridge rgb(63, 63, 63);
+    color: rgb(63, 63, 63);
+    box-shadow: 0 0 1.5vh rgb(63, 63, 63);
+    border-radius: 20px 20px 20px 20px;
+    margin: solid;
+    padding: solid;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    display: flex;
+    height: 99.25%;
+    width: 100%;
+  }
+  
+  body:hover {
+    border: double rgb(191, 191, 191);
+    color: rgb(191, 191, 191);
+    box-shadow: 0 0 1.5vh rgb(191, 191, 191);
+  }
+
+  #p1 {
+    align-self: flex-end;
   }
 `;
 
 // Elementos <body>
 
-const p1= document.createElement("p");  document.body.appendChild(p1);  p1.textContent;
+const p1= document.createElement("p");  document.body.appendChild(p1);  p1.id = "p1";  p1.textContent;
 
 // Constantes
 

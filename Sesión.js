@@ -16,11 +16,12 @@ style1.textContent = `
     border-radius: 0px 0px 0px 0px;
     margin: solid;
     padding: solid;
+    display: flex;
+    flex-direction: row;
     text-align: center;
     align-items: center;
     justify-content: center;
     align-self: center;
-    display: flex;
     height: 99vh;
     width: 100%;
     font-family: Arial, sans-serif;
@@ -33,18 +34,19 @@ style1.textContent = `
   }
 
   body {
-    background-color: rgb( 0, 0, 0);
+    background-color: rgba( 0, 0, 0, 0);
     border: ridge rgb(63, 63, 63);
     color: rgb(63, 63, 63);
     box-shadow: 0 0 1.5vh rgb(63, 63, 63);
     border-radius: 20px 20px 20px 20px;
     margin: solid;
     padding: solid;
+    display: flex;
+    flex-direction: row;
     text-align: center;
     align-items: center;
     justify-content: center;
     align-self: center;
-    display: flex;
     height: 99.25%;
     width: 100%;
   }
@@ -56,7 +58,21 @@ style1.textContent = `
   }
 
   #p1 {
+    background-color: rgba( 0, 0, 0, 0);
+    border-radius: 20px 20px 20px 20px;
+    margin: solid;
+    padding: solid;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
     align-self: flex-end;
+  }
+
+  #p1:hover {
+    box-shadow: 0 0 1.5vh rgb(191, 191, 191);
   }
 `;
 
